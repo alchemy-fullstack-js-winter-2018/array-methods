@@ -1,4 +1,4 @@
-const { map } = require('../lib/index');
+const { map, filter } = require('../lib/index');
 
 describe('array methods', () => {
   describe('assumptions', () => {
@@ -32,6 +32,14 @@ describe('array methods', () => {
           return ele * 2;
         });
         expect(results).toEqual([4, 8, 12]);
+      });
+    });
+    describe('filter', () => {
+      it('returns only even numbers', () => {
+        const results = filter([1, 2, 3, 4], ele => {
+          return ele % 2 === 0;
+        });
+        expect(results).toEqual([2, 4]);
       });
     });
   });
