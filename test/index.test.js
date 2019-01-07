@@ -1,4 +1,4 @@
-const { map, filter, findIndex, reduce } = require('../lib/index');
+const { map, filter, findIndex, reduce, every } = require('../lib/index');
 
 describe('array methods', () => {
   describe('assumptions', () => {
@@ -35,6 +35,29 @@ describe('array methods', () => {
           return acc + val;
         }); 
         expect(sum).toEqual(18);
+      });
+
+      it('can return the product of integers in an array', () => {
+        const product = [1, 2, 3].reduce((acc, val) => {
+          return acc * val;
+        }); 
+        expect(product).toEqual(6);
+      });
+    });
+
+    describe('every', () => {
+      it('can return true if every element is greater than 0', () => {
+        const positive = [1, 20, 35, 100].every(x => {
+          return x > 0;
+        }); 
+        expect(positive).toEqual(true);
+      });
+
+      it('can return false if one or more array elements is not greater than 0', () => {
+        const positive = [-10, -20, 0, 1, 20, 35, 100].every(x => {
+          return x > 0;
+        }); 
+        expect(positive).toEqual(false);
       });
     });
   });
@@ -75,5 +98,22 @@ describe('array methods', () => {
         expect(results).toEqual(15);
       });
     });
+
+    describe('every', () => {
+      it('can return true if every element is greater than 0', () => {
+        const result = every([10, 20, 33, 1000], x => {
+          return x > 0;
+        }); 
+        expect(result).toEqual(true);
+      });
+
+      it('can return false if one or more elements is not greater than 0', () => {
+        const result = every([-100, 0, 10, 20, 33, 1000], x => {
+          return x > 0;
+        }); 
+        expect(result).toEqual(false);
+      });
+    });
+
   });
 });
