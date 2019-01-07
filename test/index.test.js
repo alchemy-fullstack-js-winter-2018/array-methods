@@ -1,4 +1,4 @@
-const { map } = require('../lib/index');
+const { map, filter } = require('../lib/index');
 
 describe('array methods', () => {
   describe('assumptions', () => {
@@ -17,8 +17,10 @@ describe('array methods', () => {
     });
 
     describe('filter', () => {
-      it('should filter an element from array based on condition', () => {
-
+      it('filters out elements less than 5 from an array', () => {
+        const numbers = [1, 7, 4, 2, 9, 3, 7];
+        const small = numbers.filter(n => n < 5);
+        expect(small).toEqual([1, 4, 2, 3]);
       });
     });
 
@@ -44,5 +46,18 @@ describe('array methods', () => {
         expect(results).toEqual([4, 8, 12]);
       });
     });
+
+    describe('filter', () => {
+      it('can filter elements less than 5 from an array', () => {
+        const small = filter([1, 7, 4, 2, 9, 3, 7], ele => {
+          return ele < 5;
+        });
+        expect(small).toEqual([1, 4, 2, 3]);
+      });
+    });
+
+    describe('findIndex', () => {});
+    describe('reduce', () => {});
+    describe('every', () => {});
   });
 });
