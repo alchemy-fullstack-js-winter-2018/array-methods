@@ -12,10 +12,11 @@ describe('array methods', () => {
       });
      
 
-      // it('can double every item and skip holes', {
-      //   const arr = [2, 4,, 6];
-      //   const results = map(arr, ele => ele * 2 )
-      // })
+      it('can double every item and skip holes', () => {
+        const arr = [2, 4,, 6];
+        const results = map(arr, ele => ele * 2 )
+        expect(results).toEqual([4, 8, , 12]);
+      });
     });
   });
 });
@@ -51,7 +52,15 @@ describe('findIndex', () => {
 });
 
 
-describe('reduce', () => { });
+describe('reduce', () => { 
+  describe('assumptions', () => {
+    describe('reduce', () => {
+      it('takes an Array and callback of signature (accumulator, item) => {} and an (optional) second initialValue parameter that is the initial value of the accumulator. After each function call, the return value is passed as the accumulator argument of the next function call.', () => {
+        const 
+      }
+    })
+  });
+});
 
 
 describe('every', () => { });
