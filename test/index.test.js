@@ -44,6 +44,14 @@ describe('array methods', () => {
         expect(reduced).toEqual(6);
       });
     });
+    describe('every', () => {
+      it('returns true if all items are greater than 0', () => {
+        const results = [1, 2, 3].every(ele => {
+          return ele > 0;
+        });
+        expect(results).toEqual(true);
+      });
+    });
 
   });
   describe('implementation', () => {
