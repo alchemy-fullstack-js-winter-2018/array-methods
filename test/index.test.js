@@ -11,6 +11,11 @@ describe('array methods', () => {
         expect(doubled).toEqual([4, 8, 12]);
       });
      
+
+      // it('can double every item and skip holes', {
+      //   const arr = [2, 4,, 6];
+      //   const results = map(arr, ele => ele * 2 )
+      // })
     });
   });
 });
@@ -18,8 +23,8 @@ describe('array methods', () => {
 describe('filter', () => { 
   describe('assumptions', () => {
     describe('filter', () => {
-      it('filters even items in an array', () => {
-        const evens = [2, 5, 8].filter(ele => {
+      it('filters out odd numbers in an array', () => {
+        const evens = [1, 2, 5, 8].filter(ele => {
           return ele % 2 === 0;
         });
 
@@ -31,7 +36,19 @@ describe('filter', () => {
 
 
 
-describe('findIndex', () => { });
+describe('findIndex', () => { 
+  describe('assumptions', () => {
+    describe('findIndex', () => {
+      it('returns the index of the first item whose callback returns true or a truthy value, -1 if no item is found', () => {
+        const items = [1, 3, 4, 8].findIndex(ele => {
+          return ele % 2 === 0;
+        });
+
+        expect(items).toEqual(2);
+      });
+    });
+  })
+});
 
 
 describe('reduce', () => { });
