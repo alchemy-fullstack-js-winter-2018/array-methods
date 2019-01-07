@@ -1,4 +1,4 @@
-const { map, filter, findIndex } = require ('../lib/index');
+const { map, filter, findIndexgit  } = require ('../lib/index');
 
 describe('array methods', () => {
   describe('assumptions', () => {
