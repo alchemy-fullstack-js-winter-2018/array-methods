@@ -3,7 +3,7 @@ const { map, filter, findIndex, reduce, every } = require('../lib/index');
 describe('array methods', () => {
   describe('assumptions', () => {
     describe('map', () => {
-      it('add three to each item in an array', () => {
+      it('can add three to each item in an array', () => {
         const addedThree = [1, 2, 3, 4].map(num => {
           return num + 3;
         });
@@ -69,6 +69,13 @@ describe('array methods', () => {
           return x + 3;
         });
         expect(results).toEqual([4, 5, 6, 7, 8]);
+      });
+
+      it('can add 3 to each number and can deal with holes', () => {
+        const results = map([1, 2, , 4, 5], x => {
+          return x + 3;
+        });
+        expect(results).toEqual([4, 5, 7, 8]);
       });
     });
 
