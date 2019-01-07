@@ -1,4 +1,6 @@
 const { map } = require('../lib/index');
+const { filter } = require('../lib/index');
+const { indexOf } = require('../lib/index');
 
 describe('array methods', () => {
   describe('assumptions', () => {
@@ -18,8 +20,19 @@ describe('array methods', () => {
         expect(filtered).toEqual([2]);
       });
     });
-
-
+    describe('findIndex', () => {
+      it('finds first index greater than 4', () => {
+        const indexed = [1, 2, 3, 4, 5, 6, 7, 8].findIndex(ele => {
+          return ele > 4;
+        });
+        expect(indexed).toEqual(4);
+      });
+    });
+    describe('reduce', () => {
+        it('adds all numbers together', () => {
+            const reduced = [1, 2, 3].reduce()
+        })
+    })
 
   });
   describe('implementation', () => {
@@ -32,7 +45,20 @@ describe('array methods', () => {
       });
     });
     describe('filter', () => {
-        
-    })
+      it('remove even numbers from an array', () => {
+        const results = filter([1, 2, 3, 4, 5, 6, 7, 8], ele => {
+          return ele % 2 !== 0;
+        });
+        expect(results).toEqual([1, 3, 5, 7]);
+      });
+    });
+    describe('indexOf', () => {
+      it('returns first index greater than 3', () => {
+        const results = indexOf([1, 2, 3, 4, 5, 6], ele => {
+          return ele > 3;
+        });
+        expect(results).toEqual(3);
+      });
+    });
   });
 });
