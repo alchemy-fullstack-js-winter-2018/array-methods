@@ -1,4 +1,4 @@
-const { map, filter } = require('../lib/index');
+const { map, filter, findIndex } = require('../lib/index');
 
 describe('array methods', () => {
   describe('assumptions', () => {
@@ -11,18 +11,20 @@ describe('array methods', () => {
       });
     });
     describe('filter', () => {
-      it('returns an array of numbers greater than 3', () => {
-        const greaterThree = [1, 2, 3, 4, 5].filter(ele => {
-          return ele > 3;
+      it('returns only even numbers', () => {
+        const evens = [1, 2, 3, 4, 5, 6].filter(ele => {
+          return ele % 2 === 0;
         });
-        expect(greaterThree).toEqual([4, 5]);
+        expect(evens).toEqual([2, 4, 6]);
       });
     });
-    describe('returns only even numbers', () => {
-      const evens = [1, 2, 3, 4, 5, 6].filter(ele => {
-        return ele % 2 === 0;
+    describe('findIndex', () => {
+      it('returns the index of the first element greater than 5', () => {
+        const greater = [3, 5, 7, 9].findIndex(ele => {
+          return ele > 5;
+        });
+        expect(greater).toEqual(2);
       });
-      expect(evens).toEqual([2, 4, 6]);
     });
   });
   describe('implementation', () => {
@@ -40,6 +42,14 @@ describe('array methods', () => {
           return ele % 2 === 0;
         });
         expect(results).toEqual([2, 4]);
+      });
+    });
+    describe('findIndex', () => {
+      it('returns the index of the first item in the array greater than 5', () => {
+        const results = findIndex([3, 5, 7, 9], ele => {
+          return ele > 5;
+        });
+        expect(results).toEqual(2);
       });
     });
   });
