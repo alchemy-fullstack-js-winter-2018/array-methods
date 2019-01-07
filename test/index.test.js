@@ -1,6 +1,7 @@
 const { map } = require('../lib/index');
 const { filter } = require('../lib/index');
 const { indexOf } = require('../lib/index');
+const { reduce } = require('../lib/index');
 
 describe('array methods', () => {
   describe('assumptions', () => {
@@ -39,7 +40,7 @@ describe('array methods', () => {
       it('adds all numbers together', () => {
         const reduced = [1, 2, 3].reduce((acc, ele) => {
           return acc += ele;
-        });
+        }, 0);
         expect(reduced).toEqual(6);
       });
     });
@@ -76,10 +77,13 @@ describe('array methods', () => {
         expect(results).toEqual(3);
       });
     });
-    // describe('reduce', () => {
-    //     it('adds all numbers in array together', () => {
-    //         const results
-    //     })
-    // });
+    describe('reduce', () => {
+      it('adds all numbers in array together', () => {
+        const results = reduce([1, 2, 3], (acc, ele) => {
+          return acc += ele;
+        }, 0);
+        expect(results).toEqual(6);
+      });
+    });
   });
 });
