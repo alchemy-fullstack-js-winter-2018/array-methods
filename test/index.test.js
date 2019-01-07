@@ -1,4 +1,7 @@
-const { map, filter, findIndex, reduce } = require('../lib/index');
+const { map, 
+  filter, 
+  findIndex, 
+  reduce } = require('../lib/index');
 
 describe('array methods', () => {
   describe('assumptions', () => {
@@ -36,13 +39,14 @@ describe('array methods', () => {
       });
     });
   });
+
   describe('implementation', () => {
     describe('map', () => {
       it('can double every item in an array', () => {
-        const results = map([2, 4, 6], ele => {
+        const results = map([2, 4, , 6], ele => {
           return ele * 2;
         });
-        expect(results).toEqual([4, 8, 12]);
+        expect(results).toEqual([4, 8, , 12]);
       });
     });
     describe('filter', () => {
@@ -68,7 +72,7 @@ describe('array methods', () => {
         }, 0);
         expect(results).toEqual(10);
       });
-      it('gets the sum of the array when there is no initial value', () => {
+      it('gets the sum of the array when there is no accumulator', () => {
         const results = reduce([1, 2, 3, 4], (acc, currentValue) => {
           return acc + currentValue;
         });
