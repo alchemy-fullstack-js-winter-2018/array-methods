@@ -72,10 +72,12 @@ describe('array methods', () => {
       });
 
       it('can add 3 to each number and can deal with holes', () => {
+        //eslint-disable-next-line
         const results = map([1, 2, , 4, 5], x => {
           return x + 3;
         });
-        expect(results).toEqual([4, 5, 7, 8]);
+        //eslint-disable-next-line
+        expect(results).toEqual([4, 5, , 7, 8]);
       });
     });
 
@@ -121,6 +123,5 @@ describe('array methods', () => {
         expect(result).toEqual(false);
       });
     });
-
   });
 });
