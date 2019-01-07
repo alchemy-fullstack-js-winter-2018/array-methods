@@ -2,6 +2,7 @@ const { map } = require('../lib/index');
 const { filter } = require('../lib/index'); 
 const { findIndex } = require('../lib/index');
 const { reduce } = require('../lib/index'); 
+const { every } = require('../lib/index'); 
 
 describe('array methods', () => {
   describe('assumptions', () => {
@@ -73,6 +74,15 @@ describe('array methods', () => {
       });
     });
 
+    describe('implementation of every', () => {
+      it('every', () => {
+        const everyResult = every([2, 4, 6], ele => {
+          if(ele > 1) 
+            return ele;
+        });
+        expect(everyResult).toBe(true);
+      });
+    });
   });
 });
 
