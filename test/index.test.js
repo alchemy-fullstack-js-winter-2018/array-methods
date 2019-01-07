@@ -1,4 +1,4 @@
-const { map, filter, findIndexgit  } = require ('../lib/index');
+const { map, filter, findIndex  } = require ('../lib/index');
 
 describe('array methods', () => {
   describe('assumptions', () => {
@@ -32,7 +32,17 @@ describe('array methods', () => {
         });
         expect(firstIndex).toEqual(3);
       });
-    })
+    });
+    describe('reduce', () => {
+      it('can sum up the items in an array', () => {
+        const sum = [1, 3, 5].reduce((acc, num) => {
+          return acc + num;
+        });
+        expect(sum).toEqual(9);
+          
+      });
+    });
+
   });
 
   describe('implementation', () => {
