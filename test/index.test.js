@@ -1,4 +1,7 @@
-const { map, filter, findIndex } = require('../lib/index');
+const { map, 
+  filter, 
+  findIndex, 
+  reduce } = require('../lib/index');
 
 describe('array methods', () => {
   describe('assumptions', () => {
@@ -14,11 +17,12 @@ describe('array methods', () => {
   describe('implementation', () => {
     describe('map', () => {
       it('can double every item in an array', () => {
-        const results = map([2, 4, 6], ele => {
+        /* eslint-disable-next-line */
+        const results = map([2, , 4, 6], ele => {
           return ele * 2;
         });
-
-        expect(results).toEqual([4, 8, 12]);
+        /* eslint-disable-next-line */
+        expect(results).toEqual([4, , 8, 12]);
       });
     });
   });
@@ -61,6 +65,28 @@ describe('array methods', () => {
         });
 
         expect(results).toEqual(1);
+      });
+    });
+  });
+  describe('assumptions', () => {
+    describe('reduce', () => {
+      it('returns the sum of all elements in array', () => {
+        const sum = [1, 2, 3, 4].reduce((acc, ele) => {
+          return acc + ele;
+        });
+
+        expect(sum).toEqual(10);
+      });
+    });
+  });
+  describe('implementation', () => {
+    describe('reduce', () => {
+      it('can return the sum of all elements in array', () => {
+        const results = reduce([1, 3, 2, 4, 6], (acc, ele) => {
+          return acc + ele;
+        }, 0);
+
+        expect(results).toEqual(16);
       });
     });
   });
