@@ -1,5 +1,7 @@
 const { map } = require('../lib/index');
 const { filter } = require('../lib/index'); 
+const { findIndex } = require('../lib/index');
+const { reduce } = require('../lib/index'); 
 
 describe('array methods', () => {
   describe('assumptions', () => {
@@ -50,6 +52,24 @@ describe('array methods', () => {
             return ele;
         });
         expect(filterResult).toEqual([4, 6]); 
+      });
+    });
+
+    describe('implementation of findIndex', () => {
+      it('findIndex', () => {
+        const indexResult = findIndex([2, 4, 6], ele => {
+          if(ele === 6)
+            return ele;
+        });
+        expect(indexResult).toEqual([6]);
+      });
+    });
+    describe('implementation of reduce', () => {
+      it('reduce', () => {
+        const reduceResult = reduce([2, 4, 6], (acc, ele) => {
+          return acc + ele;
+        }, 0);
+        expect(reduceResult).toEqual(12); 
       });
     });
 
