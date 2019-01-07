@@ -29,10 +29,13 @@ describe('array methods', () => {
       });
     });
     describe('reduce', () => {
-        it('adds all numbers together', () => {
-            const reduced = [1, 2, 3].reduce()
-        })
-    })
+      it('adds all numbers together', () => {
+        const reduced = [1, 2, 3].reduce((ele, acc) => {
+          return acc += ele;
+        });
+        expect(reduced).toEqual(6);
+      });
+    });
 
   });
   describe('implementation', () => {
