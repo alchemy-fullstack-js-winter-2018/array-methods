@@ -2,16 +2,18 @@ const { map } = require('../lib/index');
 const { filter } = require('../lib/index'); 
 const { findIndex } = require('../lib/index');
 const { reduce } = require('../lib/index'); 
-const { every } = require('../lib/index'); 
+const { every } = require('../lib/index');
 
 describe('array methods', () => {
   describe('assumptions', () => {
     describe('map', () => {
       it('2 plus 2 equal', () => {
-        const add = [1, 2, 3].map(ele => {
+        /*eslint-disable-next-line */
+        const add = [1, 2, , 3].map(ele => {
           return ele + 2; 
         });
-        expect(add).toEqual([3, 4, 5]); 
+        /*eslint-disable-next-line */
+        expect(add).toEqual([3, 4, , 5]); 
       });
     });
     describe('filter', () => {
