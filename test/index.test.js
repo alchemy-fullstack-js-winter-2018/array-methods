@@ -1,4 +1,9 @@
-const { map, filter, findIndex, reduce, every } = require('../lib/index');
+const { 
+  map, 
+  filter, 
+  findIndex, 
+  reduce, 
+  every } = require('../lib/index');
 
 describe('array methods', () => {
   describe('assumptions', () => {
@@ -30,7 +35,7 @@ describe('array methods', () => {
     });
 
     describe('reduce', () => {
-      it('can return the sum of integers in an array', () => {
+      it('can return the sum of all integers in an array', () => {
         const sum = [3, 6, 9].reduce((acc, val) => {
           return acc + val;
         }); 
@@ -71,7 +76,7 @@ describe('array methods', () => {
         expect(results).toEqual([4, 5, 6, 7, 8]);
       });
 
-      it('can add 3 to each number and can deal with holes', () => {
+      it('can add 3 to each number and successfully handle holes', () => {
         //eslint-disable-next-line
         const results = map([1, 2, , 4, 5], x => {
           return x + 3;
@@ -91,7 +96,7 @@ describe('array methods', () => {
     });
 
     describe('findIndex', () => {
-      it('return the index of the first item that is greater than 1', () => {
+      it('can return the index of the first item that is greater than 1', () => {
         const results = findIndex([1, 2, 3, 4, 5], x => {
           return x > 1;
         });
