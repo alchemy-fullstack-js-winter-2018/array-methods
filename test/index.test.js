@@ -11,6 +11,13 @@ describe('array methods', () => {
         });
         expect(plusThree).toEqual([4, 5, 6]);
       });
+      it('adds 3 to each number and skips holes', () => {
+        const arr = [1, 2, , 3];
+        const results = arr.map(ele => {
+          return ele + 3;
+        });
+        expect(results).toEqual([4, 5, , 6]);
+      });
     });
     describe('filter', () => {
       it('takes out odd numbers', () => {
@@ -30,7 +37,7 @@ describe('array methods', () => {
     });
     describe('reduce', () => {
       it('adds all numbers together', () => {
-        const reduced = [1, 2, 3].reduce((ele, acc) => {
+        const reduced = [1, 2, 3].reduce((acc, ele) => {
           return acc += ele;
         });
         expect(reduced).toEqual(6);
@@ -45,6 +52,12 @@ describe('array methods', () => {
           return ele * 2;
         });
         expect(results).toEqual([4, 8, 12]);
+      });
+      it('doubles every item and skips holes', () => {
+        const results = map([1, 2, , 3], ele => {
+          return ele * 2;
+        });
+        expect(results).toEqual([2, 4, , 6]);
       });
     });
     describe('filter', () => {
@@ -63,5 +76,10 @@ describe('array methods', () => {
         expect(results).toEqual(3);
       });
     });
+    // describe('reduce', () => {
+    //     it('adds all numbers in array together', () => {
+    //         const results
+    //     })
+    // });
   });
 });
