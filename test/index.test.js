@@ -1,4 +1,4 @@
-const { map, filter, findIndex } = require('../lib/index');
+const { map, filter, findIndex, reduce } = require('../lib/index');
 
 describe('array methods', () => {
   describe('assumptions', () => {
@@ -26,6 +26,15 @@ describe('array methods', () => {
         expect(greater).toEqual(2);
       });
     });
+    describe('reduce', () => {
+      it('can get the sum of an array', () => {
+        const arr = [1, 2, 3, 4];
+        const sum = arr.reduce((acc, index) => {
+          return acc + index;
+        }, 0);
+        expect(sum).toEqual(10);
+      });
+    });
   });
   describe('implementation', () => {
     describe('map', () => {
@@ -37,7 +46,7 @@ describe('array methods', () => {
       });
     });
     describe('filter', () => {
-      it('returns only even numbers', () => {
+      it('can return only even numbers', () => {
         const results = filter([1, 2, 3, 4], ele => {
           return ele % 2 === 0;
         });
@@ -50,6 +59,20 @@ describe('array methods', () => {
           return ele > 5;
         });
         expect(results).toEqual(2);
+      });
+    });
+    describe('reduce', () => {
+      it('gets the sum of the array', () => {
+        const results = reduce([1, 2, 3, 4], (acc, currentValue) => {
+          return acc + currentValue;
+        }, 0);
+        expect(results).toEqual(10);
+      });
+      it('gets the sum of the array when there is no initial value', () => {
+        const results = reduce([1, 2, 3, 4], (acc, currentValue) => {
+          return acc + currentValue;
+        });
+        expect(results).toEqual(10);
       });
     });
   });
