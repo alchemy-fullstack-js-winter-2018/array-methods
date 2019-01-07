@@ -1,4 +1,8 @@
-const { map } = require('../lib/index');
+const { 
+  map,
+  filter,
+  findIndex
+} = require('../lib/index');
 
 describe('array methods', () => {
   describe('assumptions', () => {
@@ -12,9 +16,23 @@ describe('array methods', () => {
     });
     
     describe('filter', () => {
-      it('returns the numbers greater than 3', () => {
+      it('returns the numbers less than 3', () => {
+        const filter = [1, 2, 3, 4, 5].filter(ele => {
+          return ele < 3;
+        });
+        expect(filter).toEqual([1, 2]);
 
       });
+    });
+
+    describe('findIndex', () => {
+      it('returns the first number that is even', () => {
+        const findIndex = [3, 7, 2, 4].findIndex(ele => {
+          return ele % 2 === 0;
+        });
+        expect(findIndex).toEqual(2);
+      });
+
     });
 
     describe('implementation', () => {
@@ -25,6 +43,24 @@ describe('array methods', () => {
           });
 
           expect(results).toEqual([4, 8, 12]);
+        });
+      });
+
+      describe('filter', () => {
+        it('can return numbers less than 3 in every array', () => {
+          const filterResults = filter([1, 2, 3, 4], ele => {
+            return ele < 3 ;
+          });
+          expect(filterResults).toEqual([1, 2]);
+        });
+      });
+      
+      describe('findIndex', () => {
+        it('can return first even number in every array', () => {
+          const indexResults = findIndex([3, 7, 6, 4], ele => {
+            return ele % 2 === 0;
+          });
+          expect(indexResults).toEqual(2);
         });
       });
     });
