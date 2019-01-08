@@ -53,14 +53,16 @@ describe('array methods', () => {
       });
     });
 
-    // describe('forEach', () => {
-    //   it('doubles each number in the array', () => {
-    //     const doubles = [1, 2, 3].forEach(ele => {
-    //       return ele + 2;
-    //     });
-    //     expect(doubles).toEqual([3, 4, 5]);
-    //   });
-    // });
+    describe('forEach', () => {
+      it('doubles each number in the array', () => {
+        const doubles = [];
+        forEach([1, 2, 3], => {
+          doubles.push(ele * 2);
+  
+        });
+        expect(doubles).toEqual([2, 4, 6]);
+      });
+    });
 
   });
 
@@ -127,7 +129,7 @@ describe('array methods', () => {
           return acc + ele;
         });
         expect(sum).toEqual(10);
-      })
+      });
     });
 
     describe('every', () => {
