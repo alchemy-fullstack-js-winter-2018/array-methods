@@ -2,7 +2,7 @@ const {
   map,
   filter,
   findIndex,
-  // reduce
+  reduce
 } = require('../lib/index');
 
 describe('array methods', () => {
@@ -41,8 +41,8 @@ describe('array methods', () => {
     });
 
 
-    // describe('reduce', () => {
-    // });
+    describe('reduce', () => {
+    });
 
 
     // describe('every', () => {
@@ -105,21 +105,27 @@ describe('array methods', () => {
       });
     });
 
-    // describe('reduce', () => {
-    //   it('can sum two numbers together', () => {
-    //     const sum = reduce([1, 2, 3], (acc, ele) => {
-    //       return acc + ele;
-    //     }, 0);
-    //     expect(sum).toEqual(6);
-    //   });
-
-    //   it('can sum array with no accumulator', () => {
-    //     const sum = reduce([1, 2, 3], (acc, ele) => {
-    //       return acc + ele;
-    //     });
-    //     expect(sum).toEqual(6);
-    //   });
-    // });
+    describe('reduce', () => {
+      it('can sum two numbers together', () => {
+        const sum = reduce([1, 2, 3], (acc, ele) => {
+          return acc + ele;
+        }, 0);
+        expect(sum).toEqual(6);
+      });
+      it('can sum two numbers together in array with holes', () => {
+        // eslint-disable-next-line no-sparse-arrays
+        const sum = reduce([1, , 3], (acc, ele) => {
+          return acc + ele;
+        }, 0);
+        expect(sum).toEqual(4);
+      });
+      it('can sum array with no accumulator', () => {
+        const sum = reduce([1, 2, 3], (acc, ele) => {
+          return acc + ele;
+        });
+        expect(sum).toEqual(6);
+      });
+    });
 
     // describe('every', () => {
 
