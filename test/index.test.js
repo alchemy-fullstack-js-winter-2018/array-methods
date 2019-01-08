@@ -21,6 +21,7 @@ describe('array methods', () => {
         expect(results).toEqual([4, 8, 12]);
       });
     });
+
     describe('filter', () => {
       it('can filter out odds', () => {
         const evens = filter([1, 2, 3, 4], ele => {
@@ -42,10 +43,11 @@ describe('array methods', () => {
 }); 
 
 describe('findIndex', () => {
-  it('returns the index at the given index', () => {
-    const indexOf = findIndex([1, 3, 6, 9], ele => {
-      return ele;
+  it('looks for a given number and returns its index, if found', () => {
+    const arr = [1, 3, 6, 9];
+    const indexAt = findIndex(arr, ele => {
+      return ele === 3;
     });
-    expect(indexOf).toEqual([0 || 1 || 2 || 3]);
+    expect(indexAt).toEqual(1);
   });
 });
