@@ -4,11 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/avanvalk/array-methods.git"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
