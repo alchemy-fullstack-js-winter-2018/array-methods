@@ -15,13 +15,11 @@ describe('array methods', () => {
         expect(squared).toEqual([1, 4, 9]);
         expect(squared.length).toEqual(numbers.length);
       });
-
       it('doubles each item in an array', () => {
         const doubled = [2, 4, 6].map(ele => ele * 2);
         expect(doubled).toEqual([4, 8, 12]);
       });
     });
-
 
     describe('filter', () => {
       it('filters out elements less than 5 from an array', () => {
@@ -29,19 +27,58 @@ describe('array methods', () => {
         const small = numbers.filter(n => n < 5);
         expect(small).toEqual([1, 4, 2, 3]);
       });
-    });
-
-
-    describe('findIndex', () => {
-      it('can find the element value from an array based on index #', () => {
-        const nums = [2, 4, 6, 0, 67];
-        const index = nums.findIndex((ele) => ele === 67);
-        expect(index).toEqual(4);
+      it('filters and skips holes', () => {
+        // eslint-disable-next-line no-sparse-arrays
+        const numbers = [, 7, 4, 2, , 3, , 7];
+        const small = numbers.filter(n => n < 5);
+        expect(small).toEqual([4, 2, 3]);
       });
     });
 
+    describe('findIndex', () => {
+      it('can find the index # from an array based on element value', () => {
+        const nums = [2, 4, 6, 0, 67];
+        const index = nums.findIndex(ele => ele === 67);
+        expect(index).toEqual(4);
+      });
+      it('returns -1 if element value is NOT in array', () => {
+        const arr = [2, 4, 6, 0, 67];
+        const index = arr.findIndex(ele => {
+          return ele === 45;
+        });
+        expect(index).toEqual(-1);
+      });
+      it('can find index # from array with holes based on element value', () => {
+        // eslint-disable-next-line no-sparse-arrays
+        const arr = [, , , 4, 6, , 67, , 81];
+        const index = arr.findIndex(ele => ele === 67);
+        expect(index).toEqual(6);
+      });
+    });
 
     describe('reduce', () => {
+      it('can sum array numbers together', () => {
+        const arr = [1, 2, 3];
+        const sum = arr.reduce((acc, ele) => {
+          return acc + ele;
+        }, 0);
+        expect(sum).toEqual(6);
+      });
+      it('can sum two numbers together in array with holes', () => {
+        // eslint-disable-next-line no-sparse-arrays
+        const arrHoles = [1, , 3];
+        const sum = arrHoles.reduce((acc, ele) => {
+          return acc + ele;
+        }, 0);
+        expect(sum).toEqual(4);
+      });
+      it('can sum array with no accumulator', () => {
+        const arr = [1, 2, 3];
+        const sum = arr.reduce((acc, ele) => {
+          return acc + ele;
+        });
+        expect(sum).toEqual(6);
+      });
     });
 
 
