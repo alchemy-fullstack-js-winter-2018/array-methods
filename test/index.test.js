@@ -58,21 +58,37 @@ describe('array methods', () => {
   describe('implementation', () => {
     describe('map', () => {
       it('can double numbers in every array', () => {
-        const results = map([2, 4, , 6], ele => {
+        const results = map([2, 4, 6], ele => {
           return ele * 2;
         });
 
         expect(results).toEqual([4, 8, 12]);
+      });
+
+      it('can double numbers and skip holes', () => {
+        const arr =[2, 4, ,6];
+        const results = map(arr, ele => ele * 2);
+        
+        expect(results).toEqual([4, 8, ,12]);
+
       });
     });
 
     describe('filter', () => {
       it('can return numbers less than 3 in every array', () => {
         const filterResults = filter([1, 2, 3, 4], ele => {
-          return ele < 3 ;
+          return ele < 3;
         });
         expect(filterResults).toEqual([1, 2]);
       });
+
+      it('can return numbers less than 3 and skip holes', () => {
+        const filterResults = filter([1, 2, 3, ,4], ele => {
+          return ele < 3;
+        });
+        expect(filterResults).toEqual([1, 2]);
+      });
+
     });
       
     describe('findIndex', () => {
