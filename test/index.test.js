@@ -3,7 +3,8 @@ const {
     filter,
     findIndex,
     reduce,
-    every
+    every,
+    forEach
 } = require('../lib/index');
 
 describe('array methods', () => {
@@ -52,6 +53,15 @@ describe('array methods', () => {
 
                 expect(every).toEqual(true);
             });
+        });
+        describe('forEach', () => {
+            it('loops through an array and calls a function on each element', () => {
+                let x = 0;
+                [9].forEach(ele => {
+                   x++;     
+                });
+                expect(x).toEqual(1);
+            });
         }); 
     });
     describe('implimentation', () => {
@@ -95,8 +105,17 @@ describe('array methods', () => {
             it('will return a value of true', () => {
                 const results = every([6, 7, , 8], ele => {
                     return ele > 5;
-                })
+                });
                 expect(results).toEqual(true);
+            });
+        });
+        describe('forEach', () => {
+            it('loops through an array to perform a function on each element', () => {
+                let x = 0;
+                const results = forEach([9], ele => {
+                    x++;
+                });
+                expect(x).toEqual(1)
             })
         })
     });
