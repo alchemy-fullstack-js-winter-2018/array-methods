@@ -9,14 +9,9 @@ describe('array methods', () => {
         });
         expect(double).toEqual([2, 4, 6]);
       });
-    
-      // it('can double every item and skip holes', () => {
-      //   const arr = [2, 4, , 6];
-      //   const results = map(arr, ele => ele * 2);
-      //   expect(results).toEqual([4, 8, , 12])
-      // });
       
     }); 
+   
     describe('filter', () => {
       it('can return only even numbers from an array', () => {
         const evens = [1, 2, 3, 4, 5].filter(el => {
@@ -59,7 +54,14 @@ describe('array methods', () => {
         });
         expect(results).toEqual([4, 8, 12]);
       });
+      it('can double every item and skip holes', () => {
+        const arr = [2, 4, , 6];
+        const results = map(arr, ele => ele * 2);
+        expect(results).toEqual([4, 8, , 12]);
+      });
     });  
+    
+
     describe('filter', () => {
       it('can return even items in an array', () => {
         const evens = filter([1, 2, 3, 4, 5], ele => {
