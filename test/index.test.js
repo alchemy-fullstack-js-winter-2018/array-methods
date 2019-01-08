@@ -2,7 +2,8 @@ const {
   map,
   filter,
   findIndex,
-  reduce
+  reduce,
+  every
 } = require('../lib/index');
 
 describe('array methods', () => {
@@ -82,8 +83,24 @@ describe('array methods', () => {
     });
 
 
-    // describe('every', () => {
-    // });
+    describe('every', () => {
+      it('returns true when all elements in array pass test', () => {
+        const arr = [1, 20, 30];
+        const res = arr.every(ele => ele > 0);
+        expect(res).toEqual(true);
+      });
+      it('returns false when all elements in array do NOT pass test', () => {
+        const arr = [1, 20, 30, -1, -30];
+        const res = arr.every(ele => ele > 0);
+        expect(res).toEqual(false);
+      });
+      it('returns false when all elements in array with holes do NOT pass test', () => {
+        // eslint-disable-next-line no-sparse-arrays
+        const arr = [1, 20, 30, , -30];
+        const res = arr.every(ele => ele > 0);
+        expect(res).toEqual(false);
+      });
+    });
   });
 
 
@@ -164,8 +181,23 @@ describe('array methods', () => {
       });
     });
 
-    // describe('every', () => {
-
-    // });
+    describe('every', () => {
+      it('returns true when all elements in array pass test', () => {
+        const arr = [1, 20, 30, 10];
+        const res = every(arr, ele => ele > 0);
+        expect(res).toEqual(true);
+      });
+      it('returns false when all elements in array do NOT pass test', () => {
+        const arr = [1, 20, 30, -1, -30, -50];
+        const res = every(arr, ele => ele > 0);
+        expect(res).toEqual(false);
+      });
+      it('returns false when all elements in array with holes do NOT pass test', () => {
+        // eslint-disable-next-line no-sparse-arrays
+        const arr = [1, 20, 30, , -30, , -900];
+        const res = every(arr, ele => ele > 0);
+        expect(res).toEqual(false);
+      });
+    });
   });
 });
