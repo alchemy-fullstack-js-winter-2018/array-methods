@@ -41,11 +41,11 @@ describe('array methods', () => {
   }); 
 }); 
 
-// describe('findIndex', () => {
-//   it('returns the index at the given index', () => {
-//     const indexOf = findIndex([1, 3, 6, 9], ele => {
-//       return ele;
-//     });
-//     expect(indexOf).toEqual([0 || 1 || 2 || 3]);
-//   });
-// });
+describe('findIndex', () => {
+  it('returns the index at the given index', () => {
+    const indexOf = findIndex([1, 3, 6, 9], ele => {
+      return ele;
+    });
+    expect(indexOf).toEqual([0 || 1 || 2 || 3]);
+  });
+});
