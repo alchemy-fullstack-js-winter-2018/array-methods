@@ -24,9 +24,23 @@ function findIndex(arr, fn) {
   }
 }
 
+function reduce(arr, fn, initialValue) {
+  let i = 0;
+  let acc = initialValue;
+
+  if(!acc) {
+    acc = arr[0];
+    i = 1;
+  }
+  for(i; i < arr.length; i++) {
+    acc = fn(acc, arr[i]);
+  }
+  return acc;
+} 
 
 module.exports = {
   map,
   filter,
-  findIndex
+  findIndex,
+  reduce
 };
