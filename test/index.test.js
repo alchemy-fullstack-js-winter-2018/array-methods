@@ -34,7 +34,7 @@ describe('array methods', () => {
       });
     });
     describe('reduce', () => {
-      it('can sum up the items in an array w/o accumulator', () => {
+      it('can sum up the items in an array', () => {
         const sum = [1, 3, 5].reduce((acc, num) => {
           return acc + num;
         });
@@ -71,7 +71,7 @@ describe('array methods', () => {
       });
     });
     describe('reduce', () => {
-      it('can sum up the items in an array', () => {
+      it('can sum up the items in an array w/o accumulator', () => {
         const sum = reduce([1, 3, 5], (acc, num) => {
           return acc + num;
         });
