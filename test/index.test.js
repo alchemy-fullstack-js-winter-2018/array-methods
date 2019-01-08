@@ -2,6 +2,7 @@ const { map } = require('../lib/index');
 const { filter } = require('../lib/index');
 const { indexOf } = require('../lib/index');
 const { reduce } = require('../lib/index');
+const { every } = require('../lib/index');
 
 describe('array methods', () => {
   describe('assumptions', () => {
@@ -52,7 +53,6 @@ describe('array methods', () => {
         expect(results).toEqual(true);
       });
     });
-
   });
   describe('implementation', () => {
     describe('map', () => {
@@ -62,12 +62,17 @@ describe('array methods', () => {
         });
         expect(results).toEqual([4, 8, 12]);
       });
+
+      
       it('doubles every item and skips holes', () => {
         const results = map([1, 2, , 3], ele => {
           return ele * 2;
         });
         expect(results).toEqual([2, 4, , 6]);
       });
+
+
+
     });
     describe('filter', () => {
       it('remove even numbers from an array', () => {
@@ -91,6 +96,14 @@ describe('array methods', () => {
           return acc += ele;
         }, 0);
         expect(results).toEqual(6);
+      });
+    });
+    describe('every', () => {
+      it('returns true if every number is greater than 0', () => {
+        const results = every([1, 2, 3], ele => {
+          return ele > 0;
+        });
+        expect(results).toEqual(true);
       });
     });
   });
