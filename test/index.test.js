@@ -1,5 +1,5 @@
 const { 
-    map
+    map, filter
 } = require('../lib/index');
 
 describe('array methods', () => {
@@ -15,7 +15,16 @@ describe('array methods', () => {
             });
         });
 
-    
+        describe('filter', () => {
+            it('can filter out odd numbers', () => {
+                const evens = [1, 2, 3, 4].filter(el => {
+                    return el % 2 === 0;
+                });
+                expect(evens).toEqual([2, 4]);
+            });
+        });
+        
+       
     
     
     
@@ -39,7 +48,17 @@ describe('array methods', () => {
             });
 
 
-           
+            describe('filter', () => {
+                it('can filter out odd numbers', () => {
+                    const evens = filter([1, 2, 3, 4], el => {
+                        return el % 2 === 0;
+                    });
+
+                    expect(evens).toEqual([2, 4]);
+                });
+            });
+            
+            
         });
     });
 
