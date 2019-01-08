@@ -1,5 +1,8 @@
 const { 
-    map, filter, reduce
+    map, 
+    filter, 
+    reduce , 
+    findIndex
 } = require('../lib/index');
 
 describe('array methods', () => {
@@ -32,7 +35,14 @@ describe('array methods', () => {
                 expect(sum).toEqual(6);
             });
         });
-       
+        describe('findIndex', () => {
+            it('can find the first large number', () => {
+                const findFirstLargeNumber = [1, 2, 240, 480, 960].findIndex(el => {
+                    return el > 200;
+                });
+                expect(findFirstLargeNumber).toEqual(2);
+             });
+        });
     
     
     
@@ -83,7 +93,15 @@ describe('array methods', () => {
                     expect(sum).toEqual(6);
                 });
             });
-    
+            describe('findIndex', () => {
+                it('has to be a greater number in the array', () => {
+                    const results = findIndex([1, 2, 240, 480, 960], el => {
+                        return el > 2;
+                    });
+
+                    expect(results).toEqual(2);
+                });
+            });
         });
     });
 
