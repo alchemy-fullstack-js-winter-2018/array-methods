@@ -74,6 +74,14 @@ describe('array methods', () => {
 
                     expect(sum).toEqual(6);
                 });
+
+                it('can sum an array with no accumulator', () => {
+                    const sum = reduce([1, 2, 3], (acc, el) => {
+                        return acc + el;
+                    });
+
+                    expect(sum).toEqual(6);
+                });
             });
     
         });
