@@ -9,7 +9,6 @@ const {
 
 describe('array methods', () => {
   describe('assumptions', () => {
-
     describe('map', () => {
       it('should square each element number in an array', () => {
         const numbers = [1, 2, 3];
