@@ -3,7 +3,8 @@ const {
   filter,
   findIndex,
   reduce,
-  every
+  every,
+  forEach
 } = require('../lib/index');
 
 describe('array methods', () => {
@@ -82,7 +83,6 @@ describe('array methods', () => {
       });
     });
 
-
     describe('every', () => {
       it('returns true when all elements in array pass test', () => {
         const arr = [1, 20, 30];
@@ -99,6 +99,32 @@ describe('array methods', () => {
         const arr = [1, 20, 30, , -30];
         const res = arr.every(ele => ele > 0);
         expect(res).toEqual(false);
+      });
+    });
+
+    describe('forEach', () => {
+      it('can square each item in an array', () => {
+        const numbers = [1, 2, 3];
+        const squared = [];
+        numbers.forEach(x => {
+          squared.push(x * x);
+        });
+        expect(squared).toEqual([1, 4, 9]);
+      });
+      it('can square each item in an array with holes', () => {
+        // eslint-disable-next-line no-sparse-arrays
+        const numbers = [1, 2, , 3];
+        const squared = [];
+        numbers.forEach(x => {
+          squared.push(x * x);
+        });
+        expect(squared).toEqual([1, 4, 9]);
+      });
+      it('can return undefined', () => {
+        // eslint-disable-next-line no-sparse-arrays
+        const numbers = [1, , undefined, , 3];
+        numbers.forEach(ele => ele);
+        expect(numbers).toContain(undefined);
       });
     });
   });
@@ -197,6 +223,34 @@ describe('array methods', () => {
         const arr = [1, 20, 30, , -30, , -900];
         const res = every(arr, ele => ele > 0);
         expect(res).toEqual(false);
+      });
+    });
+
+    describe('forEach', () => {
+      it('can square each item in an array', () => {
+        const numbers = [1, 2, 3];
+        const squared = [];
+        forEach(numbers, x => {
+          squared.push(x * x);
+        });
+        expect(squared).toEqual([1, 4, 9]);
+      });
+      it('can square each item in an array with holes', () => {
+        // eslint-disable-next-line no-sparse-arrays
+        const numbers = [1, , 2, , 3];
+        const squared = [];
+        forEach(numbers, x => {
+          squared.push(x * x);
+        });
+        expect(squared).toEqual([1, 4, 9]);
+      });
+      it('can return undefined', () => {
+        // eslint-disable-next-line no-sparse-arrays
+        const numbers = [1, , 2, undefined, 3];
+        const undef = forEach(numbers, x => {
+          return x;
+        });
+        expect(undef).toEqual(undefined);
       });
     });
   });
