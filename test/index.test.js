@@ -2,7 +2,8 @@ const {
     map, 
     filter, 
     reduce , 
-    findIndex
+    findIndex,
+    every
 } = require('../lib/index');
 
 describe('array methods', () => {
@@ -42,6 +43,14 @@ describe('array methods', () => {
                 });
                 expect(findFirstLargeNumber).toEqual(2);
              });
+        });
+        describe('every', () => {
+            it('can return true all values below a threshold', () => {
+                const isBelowThreshold = [1, 2, 3, 4, 5].every(el =>{
+                    return el < 6;
+                });
+                expect(isBelowThreshold).toEqual(true);
+            });
         });
     
     
@@ -100,6 +109,14 @@ describe('array methods', () => {
                     });
 
                     expect(results).toEqual(2);
+                });
+            });
+            describe('every', () => {
+                it('can return true all values below a threshold', () => {
+                    const results = every([1, 2, 3, 4, 5], el => {
+                        return el < 6;
+                    });
+                    expect(results).toEqual(true);
                 });
             });
         });
