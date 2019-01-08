@@ -83,6 +83,12 @@ describe('array methods', () => {
 
                     expect(evens).toEqual([2, 4]);
                 });
+                it('can filter out odd numbers & skip holes', () => {
+                    const evens = filter([1, , 2, 3, 4, , 5, 6], el => {
+                        return el % 2 === 0;
+                });
+                expect(evens).toEqual([2, 4, 6]);
+                });
             });
             
             describe('reduce', () => {
