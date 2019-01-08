@@ -1,4 +1,9 @@
-const { map, filter, findIndex } = require('../lib/index');
+const { 
+  map, 
+  filter, 
+  // findIndex, 
+  // reduce 
+} = require('../lib/index');
 
 describe('array methods', () => {
   describe('assumptions', () => {
@@ -15,14 +20,8 @@ describe('array methods', () => {
         const doubled = [2, 4, 6].map(ele => ele * 2);
         expect(doubled).toEqual([4, 8, 12]);
       });
-
-      it('can double every item and skip hole', () => {
-        const evens = filter([1, 2, 3, 4], ele => {
-          return ele % 2 === 0;
-        });
-        expect(evens).toEqual([2, 4]);
-      });
     });
+
 
     describe('filter', () => {
       it('filters out elements less than 5 from an array', () => {
@@ -32,22 +31,24 @@ describe('array methods', () => {
       });
     });
 
-    describe('findIndex', () => {
-      it('can find the element value from an array based on index #', () => {
-        const nums = [2, 4, 6, 0, 67];
-        const index = nums.findIndex((ele) => ele === 67);
-        expect(index).toEqual(4);
-      });
-    });
 
-    describe('reduce', () => {
+    // describe('findIndex', () => {
+    //   it('can find the element value from an array based on index #', () => {
+    //     const nums = [2, 4, 6, 0, 67];
+    //     const index = nums.findIndex((ele) => ele === 67);
+    //     expect(index).toEqual(4);
+    //   });
+    // });
 
-    });
 
-    describe('every', () => {
+    // describe('reduce', () => {
+    // });
 
-    });
+
+    // describe('every', () => {
+    // });
   });
+
 
   describe('implementation', () => {
     describe('map', () => {
@@ -56,6 +57,14 @@ describe('array methods', () => {
           return ele * 2;
         });
         expect(results).toEqual([4, 8, 12]);
+      });
+      it('can double every item AND skip hole', () => {
+        // eslint-disable-next-line no-sparse-arrays
+        const arr = [2, 4, , 6];
+        const results = map(arr, ele => ele * 2);
+        // eslint-disable-next-line no-sparse-arrays
+        expect(results).toEqual([4, 8, , 12]);
+        expect(results.length).toEqual(4);
       });
     });
 
@@ -66,18 +75,42 @@ describe('array methods', () => {
         });
         expect(small).toEqual([1, 4, 2, 3]);
       });
-    });
 
-    describe('findIndex', () => {
-      it('can find the index # from an array based on element value', () => {
-        const index = findIndex([2, 4, 6, 0, 67], ele => {
-          return ele === 67;
-        });
-        expect(index).toEqual(4);
+      it('filters and skips holes', () => {
+        // eslint-disable-next-line no-sparse-arrays
+        const numbers = [, 7, 4, 2, 9, 3, 7];
+        const small = filter(numbers, n => n < 5);
+        expect(small).toEqual([4, 2, 3]);
       });
     });
 
-    describe('reduce', () => {});
-    describe('every', () => {});
+    // describe('findIndex', () => {
+    //   it('can find the index # from an array based on element value', () => {
+    //     const index = findIndex([2, 4, 6, 0, 67], ele => {
+    //       return ele === 67;
+    //     });
+    //     expect(index).toEqual(4);
+    //   });
+    // });
+
+    // describe('reduce', () => {
+    //   it('can sum two numbers together', () => {
+    //     const sum = reduce([1, 2, 3], (acc, ele) => {
+    //       return acc + ele;
+    //     }, 0);
+    //     expect(sum).toEqual(6);
+    //   });
+
+    //   it('can sum array with no accumulator', () => {
+    //     const sum = reduce([1, 2, 3], (acc, ele) => {
+    //       return acc + ele;
+    //     });
+    //     expect(sum).toEqual(6);
+    //   });
+    // });
+
+    // describe('every', () => {
+
+    // });
   });
 });
