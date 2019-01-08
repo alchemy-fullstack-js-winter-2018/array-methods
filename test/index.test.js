@@ -78,5 +78,13 @@ describe('array methods', () => {
         expect(sum).toEqual(9);  
       });
     });
+    describe('reduce', () => {
+      it('can sum up the items in an array w/ accumulator', () => {
+        const sum = reduce([1, 3, 5], (acc, num) => {
+          return acc + num;
+        }, 0);
+        expect(sum).toEqual(9);  
+      });
+    });
   });   
 });
