@@ -60,11 +60,11 @@ describe('array methods', () => {
 
     describe('implementation of findIndex', () => {
       it('findIndex', () => {
-        const indexResult = findIndex([2, 4, 6], ele => {
-          if(ele === 6)
+        const indexResult = findIndex([1, 2, 4, 6], ele => {
+          if(ele % 2 === 0)
             return ele;
         });
-        expect(indexResult).toEqual([6]);
+        expect(indexResult).toEqual(1);
       });
     });
     describe('implementation of reduce', () => {
