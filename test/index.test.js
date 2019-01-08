@@ -23,7 +23,6 @@ describe('array methods', () => {
           return ele < 3;
         });
         expect(filter).toEqual([1, 2]);
-
       });
     });
 
@@ -53,6 +52,16 @@ describe('array methods', () => {
         expect(every).toEqual(true);
       });
     });
+
+    // describe('forEach', () => {
+    //   it('doubles each number in the array', () => {
+    //     const doubles = [1, 2, 3].forEach(ele => {
+    //       return ele + 2;
+    //     });
+    //     expect(doubles).toEqual([3, 4, 5]);
+    //   });
+    // });
+
   });
 
   describe('implementation', () => {
@@ -113,6 +122,12 @@ describe('array methods', () => {
         });
         expect(sum).toEqual(10);
       });
+      it('can return the sum of each array and skip holes', () => {
+        const sum = reduce([1, 2, 3, ,4], (acc, ele) => {
+          return acc + ele;
+        });
+        expect(sum).toEqual(10);
+      })
     });
 
     describe('every', () => {
