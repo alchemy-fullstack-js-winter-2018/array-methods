@@ -2,7 +2,8 @@ const {
     map, 
     filter, 
     findIndex, 
-    reduce
+    reduce, 
+    every
 
 
 } = require('../lib/index');
@@ -34,11 +35,20 @@ describe('array methods', () => {
         });
 
         describe('reduce', () => {
-            it('reduces an array to a single value', () => {
+            it('sums an array to a single value', () => {
                 const results = [1, 6, 5].reduce((acc, ele) => {
                     return acc + ele;
                 });
                 expect(results).toEqual(12);
+            });
+        });
+
+        describe('every', () => {
+            it('returns true if all values pass logic check', () => {
+                const results  = [1, 2, 5].every(ele => {
+                    return ele > 0;
+                });
+                expect(results).toBeTruthy();
             });
         });
     });
@@ -71,23 +81,23 @@ describe('array methods', () => {
             });
         });
         describe('reduce', () => {
-            it('reduces an array to a single value', () => {
-                var acc = 0;
-                const results = reduce([2, 3, 5], acc, ele => {
+            it('sums an array to a single value', () => {
+                const results = reduce([2, 3, 5], (acc, ele) => {
                     return acc + ele;
-                });
+                }, 0);
                 expect(results).toEqual(10);
             });
         });
-        
+        describe('every', () => {
+            it(' returns true/false for an array if every value passes logic check', () => {
+                const results = every([1, 4, 7], ele => {
+                    return ele > 0;
+                });
+                expect(results).toBeTruthy();
+            });
+        });
+
     });
 });
 
-// describe('reduce', () => {
-//     var acc = 0;
-//     const results = reduce([2, 3, 5], acc, ele => {
-//         return acc + ele;
-//     });
-//     expect(results).toEqual(10);
-// });
 
