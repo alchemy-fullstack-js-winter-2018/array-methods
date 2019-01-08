@@ -1,7 +1,9 @@
 const { map,
         filter,
         findIndex,
-        reduce } = require('../lib/index');
+        reduce,
+        every
+         } = require('../lib/index');
 
 describe('implementation', () => {
     describe('map', () => {
@@ -10,12 +12,6 @@ describe('implementation', () => {
                 return ele * 2;
             });
             expect(results).toEqual([4, 8, 12]);
-        });
-
-        it('can double every item an skip holes', () => {
-            const arr = [2, 4, 6];
-            const results = map(arr, ele => ele * 2);
-            expect(results).toEqual([4, 8, , 12]);
         });
         
     });
@@ -52,6 +48,17 @@ describe('implementation', () => {
                 return acc + ele;
             });
             expect(sum).toEqual(6);
+        });
+    });
+
+    describe('every', () => {
+        it('returns true ', () => {
+            const checkArray = every([1, 2, 3, 4], ele => {
+                if(ele % 2 === 0) {
+                    return true;
+                }
+            });
+            expect(checkArray).toEqual(true);
         });
     });
 });
