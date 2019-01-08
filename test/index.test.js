@@ -107,6 +107,11 @@ describe('array methods', () => {
 
                     expect(sum).toEqual(6);
                 });
+                it('can sum an array of numbers together & skip holes', () => {
+                    const sum = reduce([1, , 2, , 3], (acc, el) => {
+                        return acc + el;
+                    });
+                })
             });
             describe('findIndex', () => {
                 it('has to be a greater number in the array', () => {
