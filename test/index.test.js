@@ -81,7 +81,7 @@ describe('array methods', () => {
     });
     describe('every', () => {
       it('will return true if every element is greater than 9', () => {
-        const result = every([10, 20, 33, 1000], x => {
+        const result = every([10, 28, 37, 100], x => {
           return x > 9;
         }); 
 
@@ -89,7 +89,7 @@ describe('array methods', () => {
       });
       
       it('will return false if one or more elements is not greater than 20', () => {
-        const result = every([-100, 0, 10, 20, 33, 1000], x => {
+        const result = every([-10, 0, 10, 28, 37, 100], x => {
           return x > 20;
         }); 
 
