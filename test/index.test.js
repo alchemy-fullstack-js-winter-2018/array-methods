@@ -5,6 +5,7 @@ const { reduce } = require('../lib/index');
 const { every } = require('../lib/index');
 
 describe('array methods', () => {
+  
   describe('assumptions', () => {
     describe('map', () => {
       it('adds 3 to each number', () => {
@@ -54,6 +55,7 @@ describe('array methods', () => {
       });
     });
   });
+
   describe('implementation', () => {
     describe('map', () => {
       it('can double every item in an array', () => {
@@ -62,17 +64,12 @@ describe('array methods', () => {
         });
         expect(results).toEqual([4, 8, 12]);
       });
-
-      
       it('doubles every item and skips holes', () => {
         const results = map([1, 2, , 3], ele => {
           return ele * 2;
         });
         expect(results).toEqual([2, 4, , 6]);
       });
-
-
-
     });
     describe('filter', () => {
       it('remove even numbers from an array', () => {
