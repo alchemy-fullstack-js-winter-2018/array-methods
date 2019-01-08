@@ -52,20 +52,20 @@ describe('array methods', () => {
     describe('findIndex', () => {
       it('returns first index of an element greater than 3', () => {
         const largerThanThree = [1, 2, 3, 4].findIndex(ele => {
-          return ele === 3;
+          return ele > 3;
         });
-        expect(largerThanThree).toEqual(2);
+        expect(largerThanThree).toEqual(3);
       });
     });
   });
   describe('implementation', () => {
     describe('findIndex', () => {
-      it('can return the index of an element greater than 2', () => {
+      it('can return the index of an element greater than 8', () => {
         const results = findIndex([1, 3, 2, 4, 6], ele => {
-          return ele === 1;
+          return ele > 8;
         });
 
-        expect(results).toEqual(1);
+        expect(results).toEqual(-1);
       });
     });
   });
