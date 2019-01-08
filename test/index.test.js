@@ -1,5 +1,5 @@
 const { 
-    map, filter
+    map, filter, reduce
 } = require('../lib/index');
 
 describe('array methods', () => {
@@ -24,6 +24,14 @@ describe('array methods', () => {
             });
         });
         
+        describe('reduce', () => {
+            it('can sum an array of numbers together', () => {
+                const sum = [1, 2, 3].reduce((acc, el) => {
+                    return acc + el;
+                });
+                expect(sum).toEqual(6);
+            });
+        });
        
     
     
@@ -58,7 +66,16 @@ describe('array methods', () => {
                 });
             });
             
-            
+            describe('reduce', () => {
+                it('can sum an array of numbers together', () => {
+                    const sum = reduce([1, 2, 3], (acc, el) => {
+                        return acc + el;
+                    }, 0);
+
+                    expect(sum).toEqual(6);
+                });
+            });
+    
         });
     });
 
