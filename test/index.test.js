@@ -1,8 +1,8 @@
 const { 
-  map, 
-  filter, 
-  // findIndex, 
-  // reduce 
+  map,
+  filter,
+  findIndex,
+  // reduce
 } = require('../lib/index');
 
 describe('array methods', () => {
@@ -32,13 +32,13 @@ describe('array methods', () => {
     });
 
 
-    // describe('findIndex', () => {
-    //   it('can find the element value from an array based on index #', () => {
-    //     const nums = [2, 4, 6, 0, 67];
-    //     const index = nums.findIndex((ele) => ele === 67);
-    //     expect(index).toEqual(4);
-    //   });
-    // });
+    describe('findIndex', () => {
+      it('can find the element value from an array based on index #', () => {
+        const nums = [2, 4, 6, 0, 67];
+        const index = nums.findIndex((ele) => ele === 67);
+        expect(index).toEqual(4);
+      });
+    });
 
 
     // describe('reduce', () => {
@@ -75,7 +75,6 @@ describe('array methods', () => {
         });
         expect(small).toEqual([1, 4, 2, 3]);
       });
-
       it('filters and skips holes', () => {
         // eslint-disable-next-line no-sparse-arrays
         const numbers = [, 7, 4, 2, 9, 3, 7];
@@ -84,14 +83,27 @@ describe('array methods', () => {
       });
     });
 
-    // describe('findIndex', () => {
-    //   it('can find the index # from an array based on element value', () => {
-    //     const index = findIndex([2, 4, 6, 0, 67], ele => {
-    //       return ele === 67;
-    //     });
-    //     expect(index).toEqual(4);
-    //   });
-    // });
+    describe('findIndex', () => {
+      it('can find the index # from an array based on element value', () => {
+        const index = findIndex([2, 4, 6, 0, 67], ele => {
+          return ele === 67;
+        });
+        expect(index).toEqual(4);
+      });
+      it('returns -1 if element value is NOT in array', () => {
+        const index = findIndex([2, 4, 6, 0, 67], ele => {
+          return ele === 45;
+        });
+        expect(index).toEqual(-1);
+      });
+      it('can find index # from array with holes based on element value', () => {
+        // eslint-disable-next-line no-sparse-arrays
+        const index = findIndex([, , , 4, 6, , 67, , 81], ele => {
+          return ele === 67;
+        });
+        expect(index).toEqual(6);
+      });
+    });
 
     // describe('reduce', () => {
     //   it('can sum two numbers together', () => {
