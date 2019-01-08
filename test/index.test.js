@@ -40,7 +40,7 @@ describe('array methods', () => {
       });
     });
     describe('every', () => {
-      it('can return true for all values in array are less than 30', () => {
+      it('can return true if all values in array are less than 30', () => {
         const lessThan = [10, 11, 15, 22].every(ele => {
           return ele < 30;
         });
@@ -60,7 +60,7 @@ describe('array methods', () => {
     });
     describe('filter', () => {
       it('can return only even numbers', () => {
-        const results = filter([1, 2, 3, 4], ele => {
+        const results = filter([1, 2, , 3, 4], ele => {
           return ele % 2 === 0;
         });
         expect(results).toEqual([2, 4]);
@@ -68,15 +68,15 @@ describe('array methods', () => {
     });
     describe('findIndex', () => {
       it('returns the index of the first item in the array greater than 5', () => {
-        const results = findIndex([3, 5, 7, 9], ele => {
+        const results = findIndex([3, 5, , 7, 9], ele => {
           return ele > 5;
         });
-        expect(results).toEqual(2);
+        expect(results).toEqual(3);
       });
     });
     describe('reduce', () => {
       it('gets the sum of the array', () => {
-        const results = reduce([1, 2, 3, 4], (acc, currentValue) => {
+        const results = reduce([1, 2, , 3, 4], (acc, currentValue) => {
           return acc + currentValue;
         }, 0);
         expect(results).toEqual(10);
@@ -89,8 +89,8 @@ describe('array methods', () => {
       });
     });
     describe('every', () => {
-      it('can return true when all numbers in an array are less than 30', () => {
-        const results = every([10, 11, 15, 29], ele => {
+      it('can return true if all numbers in an array are less than 30', () => {
+        const results = every([10, 11, , 15, 29], ele => {
           return ele < 30;
         });
         expect(results).toEqual(true);
