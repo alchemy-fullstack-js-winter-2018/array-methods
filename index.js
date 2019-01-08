@@ -16,8 +16,17 @@ function filter(arr, fn) {
   return filteredArr;
 }
 
+function findIndex(arr, fn) {
+  for(let i = 0; i < arr.length; i++) {
+    const element = arr[i];
+    if(fn(element))
+      return i;
+  }
+}
+
 
 module.exports = {
   map,
-  filter
+  filter,
+  findIndex
 };

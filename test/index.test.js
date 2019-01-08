@@ -1,4 +1,4 @@
-const { map, filter } = require('../index');
+const { map, filter, findIndex } = require('../index');
 
 describe('array methods', () => {
   describe('assumptions', () => {
@@ -21,32 +21,48 @@ describe('array methods', () => {
         expect(results).toEqual([6, 7]);
       });
     });
-  });
 
-  describe('implementation', () => {
-    describe('map', () => {
-      it('double each number in an array', () => {
-        const doubled = map([2, 4, 6], ele => {
-          return ele * 2;
-        });
-
-        expect(doubled).toEqual([4, 8, 12]);
-      });
-    });
-
-    describe('filter', () => {
-      it('return numbers greater than five', () => {
-        const results = filter([3, 4, 5, 6, 7], ele => {
+    describe('findIndex', () => {
+      it('find the largest number in an array', () => {
+        const largest = [2, 4, 5, 10, 8].findIndex(ele => {
           return ele > 5;
         });
-
-        expect(results).toEqual([6, 7]);
+        expect(largest).toEqual(3);
       });
     });
-
+      
   });
-
-
 });
 
 
+describe('implementation', () => {
+  describe('map', () => {
+    it('double each number in an array', () => {
+      const doubled = map([2, 4, 6], ele => {
+        return ele * 2;
+      });
+
+      expect(doubled).toEqual([4, 8, 12]);
+    });
+  });
+
+  describe('filter', () => {
+    it('return numbers greater than five', () => {
+      const results = filter([3, 4, 5, 6, 7], ele => {
+        return ele > 5;
+      });
+
+      expect(results).toEqual([6, 7]);
+    });
+  });
+
+  describe('findIndex', () => {
+    it('find the largest number in an array', () => {
+      const largest = findIndex([2, 4, 5, 10, 8], ele => {
+        return ele > 5;
+      });
+
+      expect(largest).toEqual(3);
+    });
+  });
+});
