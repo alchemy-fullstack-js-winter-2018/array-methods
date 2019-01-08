@@ -52,14 +52,17 @@ describe('array methods', () => {
   describe('implementation', () => {
     describe('map', () => {
       it('can double every item in an array', () => {
+        // eslint-disable-next-line
         const results = map([2, 4, , 6], ele => {
           return ele * 2;
         });
+        // eslint-disable-next-line
         expect(results).toEqual([4, 8, , 12]);
       });
     });
     describe('filter', () => {
       it('can return only even numbers', () => {
+        // eslint-disable-next-line
         const results = filter([1, 2, , 3, 4], ele => {
           return ele % 2 === 0;
         });
@@ -68,6 +71,7 @@ describe('array methods', () => {
     });
     describe('findIndex', () => {
       it('returns the index of the first item in the array greater than 5', () => {
+        // eslint-disable-next-line        
         const results = findIndex([3, 5, , 7, 9], ele => {
           return ele > 5;
         });
@@ -76,6 +80,7 @@ describe('array methods', () => {
     });
     describe('reduce', () => {
       it('gets the sum of the array', () => {
+        // eslint-disable-next-line
         const results = reduce([1, 2, , 3, 4], (acc, currentValue) => {
           return acc + currentValue;
         }, 0);
@@ -90,6 +95,7 @@ describe('array methods', () => {
     });
     describe('every', () => {
       it('can return true if all numbers in an array are less than 30', () => {
+        // eslint-disable-next-line
         const results = every([10, 11, , 15, 29], ele => {
           return ele < 30;
         });
