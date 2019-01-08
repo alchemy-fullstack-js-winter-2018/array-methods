@@ -1,4 +1,4 @@
-const { map, filter, findIndex  } = require ('../lib/index');
+const { map, filter, findIndex, reduce  } = require ('../lib/index');
 
 describe('array methods', () => {
   describe('assumptions', () => {
@@ -34,7 +34,7 @@ describe('array methods', () => {
       });
     });
     describe('reduce', () => {
-      it('can sum up the items in an array', () => {
+      it('can sum up the items in an array w/o accumulator', () => {
         const sum = [1, 3, 5].reduce((acc, num) => {
           return acc + num;
         });
@@ -70,6 +70,13 @@ describe('array methods', () => {
         expect(firstIndex).toEqual(3);
       });
     });
-
-  });
+    describe('reduce', () => {
+      it('can sum up the items in an array', () => {
+        const sum = reduce([1, 3, 5], (acc, num) => {
+          return acc + num;
+        });
+        expect(sum).toEqual(9);  
+      });
+    });
+  });   
 });
