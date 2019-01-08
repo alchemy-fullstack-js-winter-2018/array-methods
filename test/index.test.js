@@ -1,7 +1,8 @@
 const { map, 
   filter, 
   findIndex, 
-  reduce } = require('../lib/index');
+  reduce,
+  every } = require('../lib/index');
 
 describe('array methods', () => {
   describe('assumptions', () => {
@@ -68,17 +69,6 @@ describe('array methods', () => {
       });
     });
   });
-  describe('assumptions', () => {
-    describe('reduce', () => {
-      it('returns the sum of all elements in array', () => {
-        const sum = [1, 2, 3, 4].reduce((acc, ele) => {
-          return acc + ele;
-        });
-
-        expect(sum).toEqual(10);
-      });
-    });
-  });
   describe('implementation', () => {
     describe('reduce', () => {
       it('can return the sum of all elements in array', () => {
@@ -87,6 +77,23 @@ describe('array methods', () => {
         }, 0);
 
         expect(results).toEqual(16);
+      });
+    });
+    describe('every', () => {
+      it('will return true if every element is greater than 9', () => {
+        const result = every([10, 20, 33, 1000], x => {
+          return x > 9;
+        }); 
+
+        expect(result).toEqual(true);
+      });
+      
+      it('will return false if one or more elements is not greater than 20', () => {
+        const result = every([-100, 0, 10, 20, 33, 1000], x => {
+          return x > 20;
+        }); 
+
+        expect(result).toEqual(false);
       });
     });
   });
