@@ -1,4 +1,4 @@
-const { map, filter, reduce } = require('../lib/index');
+const { map, filter, findIndex, reduce } = require('../lib/index');
 
 describe('array methods', () => {
   describe('assumptions', () => {
@@ -29,16 +29,6 @@ describe('array methods', () => {
         expect(evens).toEqual([2, 4]);
       });
     });
-    // describe('findIndex', () => {
-    //   it('returns the item at the given index', () => {
-    //     const indexOf = findIndex([1, 3, 6, 9], ele => {
-    //       return ele[i];
-    //     });
-    //     expect(indexOf).toEqual()
-    //   });
-    // });
-
-    
 
     describe('reduce', () => {
       it('reduces to one number', () => {
@@ -50,3 +40,12 @@ describe('array methods', () => {
     });
   }); 
 }); 
+
+// describe('findIndex', () => {
+//   it('returns the index at the given index', () => {
+//     const indexOf = findIndex([1, 3, 6, 9], ele => {
+//       return ele;
+//     });
+//     expect(indexOf).toEqual([0 || 1 || 2 || 3]);
+//   });
+// });
