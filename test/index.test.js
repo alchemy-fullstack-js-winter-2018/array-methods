@@ -1,4 +1,4 @@
-const { map, filter } = require('../lib/index');
+const { map, filter, findIndex, reduce, every } = require('../lib/index');
 
 describe('array methods', () => {
   describe('assumptions', () => {
@@ -14,7 +14,7 @@ describe('array methods', () => {
 
       it('can double every item and skip holes', () => {
         const arr = [2, 4,, 6];
-        const results = map(arr, ele => ele * 2 )
+        const results = map(arr, ele => ele * 2);
         expect(results).toEqual([4, 8, , 12]);
       });
     });
@@ -48,32 +48,53 @@ describe('findIndex', () => {
         expect(items).toEqual(2);
       });
     });
-  })
-});
-
-
-describe('reduce', () => { 
-  describe('assumptions', () => {
-    describe('reduce', () => {
-      it('takes an Array and callback of signature (accumulator, item) => {} and an (optional) second initialValue parameter that is the initial value of the accumulator. After each function call, the return value is passed as the accumulator argument of the next function call.', () => {
-        const 
-      }
-    })
   });
 });
 
 
-describe('every', () => { });
+describe('reduce', () => { 
+  it('can sum an array of numbers together', () => {
+    const sum = reduce([1, 2, 3], (acc, ele) => {
+      return acc + ele;
+    }, 0);
 
+    expect(sum).toEqual(6);
+  });
 
-describe('implementation', () => {
-  describe('map', () => {
-    it('can double every item in an array', () => {
-      const results = map([2, 4, 6], ele => {
-        return ele * 2;
-      });
-
-      expect(results).toEqual([4, 8, 12]);
+  it('can sum an array with no accumulator element', () => {
+    const sum = reduce([1, 2, 3], (acc, ele) => {
+      return acc + ele;
     });
+
+    expect(sum).toEqual(6);
+  });
+
+
+
+  describe('implementation', () => {
+    describe('map', () => {
+      it('can double every item in an array', () => {
+        const results = map([2, 4, 6], ele => {
+          return ele * 2;
+        });
+      
+        expect(results).toEqual([4, 8, 12]);
+      });
+    });
+  });
+});
+describe('every', () => { 
+
+  it('can return true if all elements are greater than 0', () => {
+    const positive = [1, 2, 6, 8, 10].every(x => {
+      return x > 0;
+    });
+    expect(positive).toEqual(true);
+  });
+  it('can return false if any number is less than 0', () => {
+    const positive = [-10, -5, 1, 5, 10].every(x => {
+      return x > 0;
+    });
+    expect(positive).toEqual(false);
   });
 });
