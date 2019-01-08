@@ -1,4 +1,4 @@
-const { map, filter, findIndex, reduce  } = require ('../lib/index');
+const { map, filter, findIndex, reduce, every  } = require ('../lib/index');
 
 describe('array methods', () => {
   describe('assumptions', () => {
@@ -39,10 +39,16 @@ describe('array methods', () => {
           return acc + num;
         });
         expect(sum).toEqual(9);
-          
       });
     });
-
+    describe('every', () => {
+      it('returns overall `true` value if all items of array satisfies the given condition', () => {
+        const allEven = [2, 4, 6, 8].every(ele => {
+          return ele % 2 === 0;
+        });
+        expect(allEven).toBe(true);
+      });
+    });  
   });
 
   describe('implementation', () => {
@@ -86,5 +92,13 @@ describe('array methods', () => {
         expect(sum).toEqual(9);  
       });
     });
+    describe('every', () => {
+      it('returns overall `true` value if all items of array satisfies the given condition', () => {
+        const allEven = every([2, 4, 6, 8], ele => {
+          return ele % 2 === 0;
+        });
+        expect(allEven).toEqual(true);
+      });
+    });  
   });   
 });
