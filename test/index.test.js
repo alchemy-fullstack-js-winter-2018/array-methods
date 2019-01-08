@@ -1,7 +1,8 @@
 const { map, 
   filter, 
   findIndex, 
-  reduce } = require('../lib/index');
+  reduce,
+  every } = require('../lib/index');
 
 describe('array methods', () => {
   describe('assumptions', () => {
@@ -36,6 +37,14 @@ describe('array methods', () => {
           return acc + index;
         }, 0);
         expect(sum).toEqual(10);
+      });
+    });
+    describe('every', () => {
+      it('can return true for all values in array are less than 30', () => {
+        const lessThan = [10, 11, 15, 22].every(ele => {
+          return ele < 30;
+        });
+        expect(lessThan).toEqual(true);
       });
     });
   });
@@ -77,6 +86,14 @@ describe('array methods', () => {
           return acc + currentValue;
         });
         expect(results).toEqual(10);
+      });
+    });
+    describe('every', () => {
+      it('can return true when all numbers in an array are less than 30', () => {
+        const results = every([10, 11, 15, 29], ele => {
+          return ele < 30;
+        });
+        expect(results).toEqual(true);
       });
     });
   });
