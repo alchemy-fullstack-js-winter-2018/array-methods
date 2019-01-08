@@ -2,7 +2,8 @@ const {
   map,
   filter,
   findIndex,
-  reduce
+  reduce,
+  every
 } = require('../lib/index');
 
 describe('array methods', () => {
@@ -59,6 +60,18 @@ describe('array methods', () => {
         expect(summedNumbers).toEqual(15);
       });
     });
+
+    describe('every', () => {
+      it('checks if every element in the array is greater than 0', () => {
+        const posNum = [1, 2, 3, -1, 4].every(ele => {
+          return ele > 0;
+        });
+
+        expect(posNum).toEqual(false);
+      });
+    });
+
+
   });
 
   ////////////////////
@@ -116,6 +129,14 @@ describe('array methods', () => {
       });
     });
 
-    
+    describe('every', () => {
+      it('checks if every element in the array is greater than 0', () => {
+        const posNum = every([1, 2, 3, -1, 4], ele => {
+          return ele > 0;
+        });
+
+        expect(posNum).toEqual(false);
+      });
+    });
   });
 });
