@@ -39,9 +39,17 @@ describe('array methods', () => {
         expect(sum).toEqual(6);
       });
     });
-  }); 
-}); 
 
+    describe('for each'... => {
+      it(squared..) => {
+        let results = []
+        foreach{listarray here] => {
+        square logic here}
+    }
+  }); 
+  
+}); 
+// ele = function
 describe('findIndex', () => {
   it('looks for a given number and returns its index, if found', () => {
     const arr = [1, 3, 6, 9];
@@ -51,3 +59,12 @@ describe('findIndex', () => {
     expect(indexAt).toEqual(1);
   });
 });
+
+//example reduce
+// dewcribe('reduce', () =>) {
+//   it.only('can sum')
+//     const sum= reduce([1, 2, 3]), (acc. ele) => {
+//       retirn acc + ele;
+//     }, 0);
+//     expect(sum).toEqual(6);
+// });
