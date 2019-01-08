@@ -1,4 +1,4 @@
-const { map, filter, findIndex, reduce } = require('../lib/index');
+const { map, filter, findIndex, reduce, every } = require('../lib/index');
 
 describe('array methods', () => {
   describe('assumptions', () => {
@@ -9,6 +9,24 @@ describe('array methods', () => {
         });
 
         expect(doubled).toEqual([4, 8, 12]);
+      });
+    });
+
+    describe('filter', () => {
+      it('returns only even numbers', () => {
+        const evens = [1, 2, 3, 4, 5, 6].filter(ele => {
+          return ele % 2 === 0;
+        });
+        expect(evens).toEqual([2, 4, 6]);
+      });
+    });
+
+    describe('findIndex', () => {
+      it('returns the index of the first element greater than 5', () => {
+        const greater = [3, 5, 7, 9].findIndex(ele => {
+          return ele > 5;
+        });
+        expect(greater).toEqual(2);
       });
     });
 
@@ -44,60 +62,57 @@ describe('array methods', () => {
       });
     });
 
-describe('implementation', () => {
-  describe('map', () => {
-    it('can double every item in an array', () => {
-      const results = map([2, 4, 6], ele => {
-        return ele * 2;
-      });
+  describe('implementation', () => {
+    describe('map', () => {
+      it('can double every item in an array', () => {
+        const results = map([2, 4, 6], ele => {
+          return ele * 2;
+        });
 
-      expect(results).toEqual([4, 8, 12]);
-    });
-  });
-
-  describe('filter', () => {
-    it('can filter out odd numbers', () => {
-      const evens = filter([1, 2, 3, 4], (ele => {
-        return ele % 2 === 0;
-      });
-
-      expect(evens).toEqual([2, 4]);
-    });
-  });
-
-  describe('findIndex', () => {
-    it('finds an index of the first item greater than 3', () => {
-      const firstIndex = [2, 4, 5, 6].findIndex(ele => {
-        return ele === 4;
-      });
-
-      expect(firstIndex).toEqual(4)
-  });
-});
-
-  describe('reduce', () => {
-    it('can sum array of numbers together', () => {
-      const results = reduce([1, 2, 3], (acc, ele) => {
-        return acc + ele;
-    }, 0);
-
-      expect(results).toEqual(6);
+        expect(results).toEqual([4, 8, 12]);
       });
     });
-  
-  describe('every', () => {
-    it('can return true if every element is greater than 0', () => {
-      const result = every([1, 20, 35, 1000], x => {
-        return x > 0;
+
+    describe('filter', () => {
+      it('can return only even numbers', () => {
+        const results = filter([1, 2, , 3, 4], ele => {
+          return ele % 2 === 0;
+        });
+        expect(results).toEqual([2, 4]);
       });
-      expect(result).toEqual(true);
     });
 
-    it('can return false if one or more elements is less than 0', () => {
-      const result = every([-100, -20, 0, 1, 10, 20, 35, 1000], x => {
-        return x > 0;
+    describe('findIndex', () => {
+      it('returns the index of the first item in the array greater than 5', () => {
+        const results = findIndex([3, 5, , 7, 9], ele => {
+          return ele > 5;
+        });
+        expect(results).toEqual(3);
       });
-      expect(result).toEqual(false);
+    });
+
+    describe('reduce', () => {
+      it('can sum array of numbers together', () => {
+        const results = reduce([1, 2, 3], (acc, ele) => {
+          return acc + ele;
+        }, 0);
+        expect(results).toEqual(6);
+        });
+      });
+    
+    describe('every', () => {
+      it('can return true if all numbers in array are less than 50', () => {
+        const results = every([1, 20, 35, 49], ele => {
+          return ele < 50;
+        });
+        expect(results).toEqual(true);
+      });
+
+      it('can return false if one or more elements is greater than 50', () => {
+        const results = every([0, 1, 10, 20, 35, 1000], x => {
+          return x > 50;
+        });
+        expect(results).toEqual(false);
       });
     });
   });
