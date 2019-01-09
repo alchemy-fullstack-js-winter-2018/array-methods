@@ -53,16 +53,16 @@ describe('array methods', () => {
       });
     });
 
-    describe('forEach', () => {
-      it('doubles each number in the array', () => {
-        const doubles = [];
-        forEach([1, 2, 3], => {
-          doubles.push(ele * 2);
+    // describe('forEach', () => {
+    //   it('doubles each number in the array', () => {
+    //     const doubles = [];
+    //     forEach([1, 2, 3], => {
+    //       doubles.push(ele * 2);
   
-        });
-        expect(doubles).toEqual([2, 4, 6]);
-      });
-    });
+    //     });
+    //     expect(doubles).toEqual([2, 4, 6]);
+    //   });
+    // });
 
   });
 
@@ -77,7 +77,7 @@ describe('array methods', () => {
       });
 
       it('can double numbers and skip holes', () => {
-        const arr =[2, 4, ,6];
+        const arr = [2, 4, ,6];
         const results = map(arr, ele => ele * 2);
         
         expect(results).toEqual([4, 8, ,12]);
@@ -125,7 +125,7 @@ describe('array methods', () => {
         expect(sum).toEqual(10);
       });
       it('can return the sum of each array and skip holes', () => {
-        const sum = reduce([1, 2, 3, ,4], (acc, ele) => {
+        const sum = reduce([1, 2, 3, , 4], (acc, ele) => {
           return acc + ele;
         });
         expect(sum).toEqual(10);
