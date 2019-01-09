@@ -70,6 +70,7 @@ describe('array methods', () => {
                 it('can double every item and skip holes', () => {
                     const arr = [2, 4, ,6];
                     const results = map(arr, el => el * 2);
+                    
                     expect(results).toEqual([4, 8, ,12]);
                 });
             });
@@ -108,10 +109,12 @@ describe('array methods', () => {
                     expect(sum).toEqual(6);
                 });
                 it('can sum an array of numbers together & skip holes', () => {
-                    const sum = reduce([1, , 2, , 3], (acc, el) => {
+                    const sum = reduce([1, 2, , 3], (acc, el) => {
                         return acc + el;
-                    });
-                })
+                    }, 0);
+
+                    expect(sum).toEqual(6);
+                });
             });
             describe('findIndex', () => {
                 it('has to be a greater number in the array', () => {
@@ -128,6 +131,16 @@ describe('array methods', () => {
                         return el < 6;
                     });
                     expect(results).toEqual(true);
+                });
+            });
+            describe('forEach', () => {
+                it('squares a number', () => {
+                    let results = [];
+                    forEach([1, 2, 3, 4], el => {
+                        results.push(el * el);
+
+                    })
+                    expect(results).toEqual([1, 3, 4, 8, 16]);
                 });
             });
         });
