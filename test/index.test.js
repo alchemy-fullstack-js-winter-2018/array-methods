@@ -1,5 +1,6 @@
 const { 
-  map
+  map,
+  filter,
 } = require('../lib/index');
 
 describe('array methods', () => {
@@ -14,4 +15,14 @@ describe('array methods', () => {
       });
     });
   });
+
+  describe('filter', () => {
+    it('takes out odd numbers', () => {
+      const filtered = [1, 2, 3].filter(ele => {
+        return ele % 2 === 0;
+      });
+      expect(filtered).toEqual([2]);
+    });
+  });
+
 });
