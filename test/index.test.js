@@ -1,4 +1,4 @@
-const { map, filter, findIndex, reduce } = require('../lib/index');
+const { map, filter, findIndex, reduce, every } = require('../lib/index');
 
 describe('array methods', () => {
   describe('assumptions', () => {
@@ -21,50 +21,53 @@ describe('array methods', () => {
         expect(results).toEqual([4, 8, 12]);
       });
     });
-
-    describe('filter', () => {
-      it('can filter out odds', () => {
-        const evens = filter([1, 2, 3, 4], ele => {
-          return ele % 2 === 0;
-        });
-        expect(evens).toEqual([2, 4]);
-      });
-    });
-
-    describe('reduce', () => {
-      it('reduces to one number', () => {
-        const sum = reduce([2, 4], ele => {
-          return ele[0] + ele[1];
-        });
-        expect(sum).toEqual(6);
-      });
-    });
-
-    describe('for each'... => {
-      it(squared..) => {
-        let results = []
-        foreach{listarray here] => {
-        square logic here}
-    }
-  }); 
-  
-}); 
-// ele = function
-describe('findIndex', () => {
-  it('looks for a given number and returns its index, if found', () => {
-    const arr = [1, 3, 6, 9];
-    const indexAt = findIndex(arr, ele => {
-      return ele === 3;
-    });
-    expect(indexAt).toEqual(1);
   });
+
+  describe('filter', () => {
+    it('can filter out odds', () => {
+      const evens = filter([1, 2, 3, 4], ele => {
+        return ele % 2 === 0;
+      });
+      expect(evens).toEqual([2, 4]);
+    });
+  });
+
+  describe('reduce', () => {
+    it('reduces to one number', () => {
+      const sum = reduce([2, 4], ele => {
+        return ele[0] + ele[1];
+      });
+      expect(sum).toEqual(6);
+    });
+  });
+
+  // ele = function
+  describe('findIndex', () => {
+    it('looks for a given number and returns its index, if found', () => {
+      const arr = [1, 3, 6, 9];
+      const indexAt = findIndex(arr, ele => {
+        return ele === 3;
+      });
+      expect(indexAt).toEqual(1);
+    });
+  });
+
+  describe('every', () => {
+    it('checks that all items in array return true', () => {
+      const arr = [1, 2, 5, 7, 8];
+      const checks = every(arr, ele => {
+        return ele[0] === arr[0];
+      });
+      expect(checks).toBeTruthy;
+    });
+  });
+
 });
 
-//example reduce
-// dewcribe('reduce', () =>) {
-//   it.only('can sum')
-//     const sum= reduce([1, 2, 3]), (acc. ele) => {
-//       retirn acc + ele;
-//     }, 0);
-//     expect(sum).toEqual(6);
-// });
+//   describe('for each'... => {
+//     it(squared..) => {
+//       let results = []
+//       foreach{list array here] => {};
+//       square logic here}
+//     }
+// }); 
