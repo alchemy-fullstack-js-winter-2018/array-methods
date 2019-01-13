@@ -56,12 +56,13 @@ describe('array methods', () => {
     it('checks that all items in array return true', () => {
       const arr = [1, 2, 5, 7, 8];
       const checks = every(arr, ele => {
-        return ele[0] === arr[0];
+        if(arr.length > 0) {
+          return true;
+        }
       });
       expect(checks).toBeTruthy;
     });
   });
-
 });
 
 //   describe('for each'... => {
