@@ -35,4 +35,13 @@ describe('array methods', () => {
     });
   });
 
+  describe('reduce', () => {
+    it('can get the sum of an array', () => {
+      const reduced = [1, 2, 3].reduce((acc, ele) => {
+        return acc += ele;
+      }, 0);
+      expect(reduced).toEqual(6);
+    });
+  });
+
 });
