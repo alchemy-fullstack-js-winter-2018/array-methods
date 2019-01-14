@@ -1,6 +1,7 @@
 const { 
   map,
   filter,
+  indexOf
 } = require('../lib/index');
 
 describe('array methods', () => {
@@ -22,6 +23,15 @@ describe('array methods', () => {
         return ele % 2 === 0;
       });
       expect(filtered).toEqual([2]);
+    });
+  });
+
+  describe('findIndex', () => {
+    it('finds first index greater than 5', () => {
+      const index = [1, 2, 3, 4, 5, 6, 7, 8, 9].findIndex(ele => {
+        return ele > 5;
+      });
+      expect(index).toEqual(5);
     });
   });
 
