@@ -62,58 +62,62 @@ describe('array methods', () => {
       });
     });
 
-  describe('implementation', () => {
-    describe('map', () => {
-      it('can double every item in an array', () => {
-        const results = map([2, 4, 6], ele => {
-          return ele * 2;
+    describe('implementation', () => {
+      describe('map', () => {
+        it('can double every item in an array', () => {
+          const results = map([2, 4, 6], ele => {
+            return ele * 2;
+          });
+
+          expect(results).toEqual([4, 8, 12]);
         });
-
-        expect(results).toEqual([4, 8, 12]);
       });
-    });
 
-    describe('filter', () => {
-      it('can return only even numbers', () => {
-        const results = filter([1, 2, , 3, 4], ele => {
-          return ele % 2 === 0;
+      describe('filter', () => {
+        it('can return only even numbers', () => {
+          // eslint-disable-next-line
+          const results = filter([1, 2, , 3, 4], ele => {
+            return ele % 2 === 0;
+          });
+          expect(results).toEqual([2, 4]);
         });
-        expect(results).toEqual([2, 4]);
       });
-    });
 
-    describe('findIndex', () => {
-      it('returns the index of the first item in the array greater than 5', () => {
-        const results = findIndex([3, 5, , 7, 9], ele => {
-          return ele > 5;
+      describe('findIndex', () => {
+        it('returns the index of the first item in the array greater than 5', () => {
+          // eslint-disable-next-line
+          const results = findIndex([3, 5, , 7, 9], ele => {
+            return ele > 5;
+          });
+          expect(results).toEqual(3);
         });
-        expect(results).toEqual(3);
       });
-    });
 
-    describe('reduce', () => {
-      it('can sum array of numbers together', () => {
-        const results = reduce([1, 2, 3], (acc, ele) => {
-          return acc + ele;
-        }, 0);
-        expect(results).toEqual(6);
+      describe('reduce', () => {
+        it('can sum array of numbers together', () => {
+          const results = reduce([1, 2, 3], (acc, ele) => {
+            return acc + ele;
+          }, 0);
+          expect(results).toEqual(6);
         });
       });
     
-    describe('every', () => {
-      it('can return true if all numbers in array are less than 50', () => {
-        const results = every([1, 20, 35, 49], ele => {
-          return ele < 50;
+      describe('every', () => {
+        it('can return true if all numbers in array are less than 50', () => {
+          const results = every([1, 20, 35, 49], ele => {
+            return ele < 50;
+          });
+          expect(results).toEqual(true);
         });
-        expect(results).toEqual(true);
-      });
 
-      it('can return false if one or more elements is greater than 50', () => {
-        const results = every([0, 1, 10, 20, 35, 1000], x => {
-          return x > 50;
+        it('can return false if one or more elements is greater than 50', () => {
+          const results = every([0, 1, 10, 20, 35, 1000], x => {
+            return x > 50;
+          });
+          expect(results).toEqual(false);
         });
-        expect(results).toEqual(false);
       });
     });
   });
 });
+
