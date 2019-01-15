@@ -98,5 +98,14 @@ describe('implementation', () => {
       expect(results).toEqual(2);
     });
   });
+
+  describe('reduce', () => {
+    it('gets the sum of an array', () => {
+      const results = reduce([2, 3, 5], (acc, ele) => {
+        return acc += ele;
+      }, 0);
+      expect(results).toEqual(10);
+    });
+  });
   
 });
