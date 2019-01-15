@@ -22,7 +22,7 @@ describe('array methods', () => {
         const results = arr.map(ele => {
           return ele * 2;
         });
-        expect (results).toEqual([2, 4, ,8]);
+        expect (results).toEqual([2, 4, , 8]);
       });
     });
       
@@ -107,5 +107,13 @@ describe('implementation', () => {
       expect(results).toEqual(10);
     });
   });
-  
+
+  describe('every', () => {
+    it('returns true if every number is greater than 0', () => {
+      const results = every([1, 2, 3], ele => {
+        return ele > 0;
+      });
+      expect(results).toEqual(true);
+    });
+  });
 });
