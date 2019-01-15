@@ -89,5 +89,14 @@ describe('implementation', () => {
       expect(results).toEqual([1, 3, 5]);
     });
   });
+
+  describe('indexOf', () => {
+    it('returns first index greater than 2', () => {
+      const results = indexOf([1, 2, 3, 4, 5], ele => {
+        return ele > 2;
+      });
+      expect(results).toEqual(2);
+    });
+  });
   
 });
