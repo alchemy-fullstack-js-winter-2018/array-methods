@@ -73,10 +73,21 @@ describe('implementation', () => {
       expect(results).toEqual([4, 8, 12]);
     });
   });
+
   it('doubles every item and skip holes', () => {
     const results = map([1, 2, , 3], ele => {
       return ele * 2;
     });
     expect(results).toEqual([2, 4, , 6]);
   });
+
+  describe('filter', () => {
+    it('remove even numbers from an array', () => {
+      const results = filter([1, 2, 3, 4, 5], ele => {
+        return ele % 2 !== 0;
+      });
+      expect(results).toEqual([1, 3, 5]);
+    });
+  });
+  
 });
