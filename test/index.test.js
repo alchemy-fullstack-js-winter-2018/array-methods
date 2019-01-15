@@ -18,10 +18,12 @@ describe('array methods', () => {
       });
       
       it('double the numbers and skip holes', () => {
+        // eslint-disable-next-line
         const arr = [1, 2, , 4];
         const results = arr.map(ele => {
           return ele * 2;
         });
+        // eslint-disable-next-line
         expect (results).toEqual([2, 4, , 8]);
       });
     });
@@ -75,9 +77,11 @@ describe('implementation', () => {
   });
 
   it('doubles every item and skip holes', () => {
+    // eslint-disable-next-line
     const results = map([1, 2, , 3], ele => {
       return ele * 2;
     });
+    // eslint-disable-next-line
     expect(results).toEqual([2, 4, , 6]);
   });
 
