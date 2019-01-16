@@ -96,7 +96,7 @@ Returns the `true` if every item in the `Array` has returned `true`, otherwise `
 * Each test: *1pt* (x 5 = 5pts)
 * Each function: *1pt* (x 5 = 5pts)
 
-## Challange
+## Challenge
 
 ### `forEach(arr, callback)`
 
