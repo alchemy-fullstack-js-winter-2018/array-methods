@@ -1,0 +1,25 @@
+{
+  "name": "array-methods-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crperezchica/array-methods-1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crperezchica/array-methods-1/issues"
+  },
+  "homepage": "https://github.com/crperezchica/array-methods-1#readme",
+  "devDependencies": {
+    "eslintrc": "^1.0.6",
+    "jest": "^23.6.0"
+  }
+}
